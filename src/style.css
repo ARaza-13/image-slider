@@ -3,3 +3,28 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.image-frame {
+  width: 500px;
+  height: 500px;
+  border: 20px solid #999;
+  background: #ddd;
+}
+
+.image {
+  width: 460px;
+  height: 460px;
+}

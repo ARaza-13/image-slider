@@ -34,7 +34,7 @@
     "html-loader": "^5.0.0",
     "mini-css-extract-plugin": "^2.8.0",
     "prettier": "3.2.5",
-    "webpack": "^5.90.1",
+    "webpack": "^5.90.2",
     "webpack-dev-middleware": "^7.0.0",
     "webpack-merge": "^5.10.0"
   }
