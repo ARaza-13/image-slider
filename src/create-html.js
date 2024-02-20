@@ -3,7 +3,10 @@ import batmanArkhamAsylum from './assets/imgs/batman-arkham-asylum.jpg';
 export default class CreateHtml {
   static initializeHtml() {
     this.createPageElements();
+    this.createImageSlideshow();
+    this.createPreviousArrow();
     this.createImageFrame();
+    this.createNextArrow();
     this.createImageSlides();
   }
 
@@ -26,13 +29,22 @@ export default class CreateHtml {
     body.appendChild(footer);
   }
 
+  static createImageSlideshow() {
+    const slideshow = document.createElement('div');
+    slideshow.classList.add('image-slideshow');
+    slideshow.setAttribute('id', 'image-slideshow');
+
+    const main = document.getElementById('main');
+    main.appendChild(slideshow);
+  }
+
   static createImageFrame() {
     const imageFrame = document.createElement('div');
     imageFrame.classList.add('image-frame');
     imageFrame.setAttribute('id', 'image-frame');
 
-    const main = document.getElementById('main');
-    main.appendChild(imageFrame);
+    const slideshow = document.getElementById('image-slideshow');
+    slideshow.appendChild(imageFrame);
   }
 
   static createImageSlides() {
@@ -51,5 +63,25 @@ export default class CreateHtml {
     image.src = src;
 
     return image;
+  }
+
+  static createNextArrow() {
+    const nextArrow = document.createElement('span');
+    nextArrow.classList.add('material-symbols-outlined');
+    nextArrow.classList.add('next-image');
+    nextArrow.textContent = 'keyboard_arrow_right';
+
+    const slideshow = document.getElementById('image-slideshow');
+    slideshow.appendChild(nextArrow);
+  }
+
+  static createPreviousArrow() {
+    const previousArrow = document.createElement('span');
+    previousArrow.classList.add('material-symbols-outlined');
+    previousArrow.classList.add('previous-image');
+    previousArrow.textContent = 'keyboard_arrow_right';
+
+    const slideshow = document.getElementById('image-slideshow');
+    slideshow.appendChild(previousArrow);
   }
 }

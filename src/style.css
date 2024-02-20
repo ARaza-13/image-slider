@@ -17,6 +17,12 @@ body {
   flex: 1;
 }
 
+.image-slideshow {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+}
+
 .image-frame {
   width: 500px;
   height: 500px;
@@ -27,4 +33,16 @@ body {
 .image {
   width: 460px;
   height: 460px;
+}
+
+.previous-image,
+.next-image {
+  font-size: 5rem;
+  border-radius: 50%;
+  background: grey;
+  cursor: pointer;
+}
+
+.previous-image {
+  transform: scale(-1);
 }
