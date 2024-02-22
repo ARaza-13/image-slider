@@ -18,7 +18,7 @@ export default class Image {
     this.src = src;
   }
 
-  getSrc(src) {
+  getSrc() {
     return this.src;
   }
 

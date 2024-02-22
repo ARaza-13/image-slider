@@ -1,5 +1,3 @@
-import batmanArkhamAsylum from './assets/imgs/batman-arkham-asylum.jpg';
-
 export default class CreateHtml {
   static initializeHtml() {
     this.createPageElements();
@@ -7,7 +5,7 @@ export default class CreateHtml {
     this.createPreviousArrow();
     this.createImageFrame();
     this.createNextArrow();
-    this.createImageSlides();
+    this.createImages();
   }
 
   static createPageElements() {
@@ -47,28 +45,29 @@ export default class CreateHtml {
     slideshow.appendChild(imageFrame);
   }
 
-  static createImageSlides() {
+  static createImages() {
     const images = document.createElement('div');
     images.classList.add('images');
-
-    const image = this.createImage(batmanArkhamAsylum);
+    images.setAttribute('id', 'images');
 
     const imageFrame = document.getElementById('image-frame');
-    imageFrame.appendChild(image);
+    imageFrame.appendChild(images);
   }
 
-  static createImage(src) {
-    const image = document.createElement('img');
-    image.classList.add('image');
-    image.src = src;
+  static createImage(image) {
+    const img = document.createElement('img');
+    img.classList.add('image');
+    img.src = image.src;
 
-    return image;
+    const images = document.getElementById('images');
+    images.appendChild(img);
   }
 
   static createNextArrow() {
     const nextArrow = document.createElement('span');
     nextArrow.classList.add('material-symbols-outlined');
     nextArrow.classList.add('next-image');
+    nextArrow.setAttribute('id', 'next-image');
     nextArrow.textContent = 'keyboard_arrow_right';
 
     const slideshow = document.getElementById('image-slideshow');
@@ -79,6 +78,7 @@ export default class CreateHtml {
     const previousArrow = document.createElement('span');
     previousArrow.classList.add('material-symbols-outlined');
     previousArrow.classList.add('previous-image');
+    previousArrow.setAttribute('id', 'previous-image');
     previousArrow.textContent = 'keyboard_arrow_right';
 
     const slideshow = document.getElementById('image-slideshow');
