@@ -9,8 +9,8 @@ import marvelsSpiderman2 from './assets/imgs/marvels-spiderman-2.png';
 import rain from './assets/imgs/rain.jpg';
 import sunset from './assets/imgs/sunset.jpg';
 
-export const images = [];
-images.push(batmanArkhamAsylum);
-images.push(batmanArkhamCity1);
-images.push(batmanArkhamKnight);
-images.push(marvelsSpiderman2);
+export const imageFolder = [];
+imageFolder.push(batmanArkhamAsylum);
+imageFolder.push(batmanArkhamCity1);
+imageFolder.push(batmanArkhamKnight);
+imageFolder.push(marvelsSpiderman2);

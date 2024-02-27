@@ -1,5 +1,5 @@
 import CreateHtml from './create-html';
-import { images } from './image-folder';
+import { imageFolder } from './image-folder';
 
 export default class DOMManager {
   static initialize() {
@@ -8,8 +8,8 @@ export default class DOMManager {
   }
 
   static loadImages() {
-    images.forEach((image) => {
-      console.log(image);
+    imageFolder.forEach((image) => {
+      CreateHtml.createImage(image);
     });
   }
 }
