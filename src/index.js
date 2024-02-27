@@ -1,7 +1,4 @@
 import './style.css';
-import CreateHtml from './create-html';
-import ImageFolder from './image-folder';
+import DOMManager from './dom';
 
-const imageFolder = new ImageFolder();
-console.log(imageFolder.images);
-CreateHtml.initializeHtml();
+DOMManager.initialize();
