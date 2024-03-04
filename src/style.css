@@ -10,6 +10,10 @@ body {
   height: 100vh;
 }
 
+.active {
+  display: inline !important;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -28,12 +32,14 @@ body {
   height: 500px;
   border: 20px solid #999;
   background: #ddd;
+  overflow: hidden;
 }
 
 .image {
   width: 460px;
   height: 460px;
-  position: absolute;
+  /* position: absolute; */
+  display: none;
 }
 
 .previous-image,
