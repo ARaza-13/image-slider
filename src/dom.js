@@ -17,7 +17,7 @@ export default class DOMManager {
   }
 
   static loadFirstImage() {
-    const img = document.querySelector('.image');
+    const img = document.querySelector('[data-image]');
     img.classList.add('active');
   }
 }

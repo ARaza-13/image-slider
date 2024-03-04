@@ -57,6 +57,7 @@ export default class CreateHtml {
   static createImage(image) {
     const img = document.createElement('img');
     img.classList.add('image');
+    img.setAttribute('data-image', '');
     img.src = image;
 
     const images = document.getElementById('images');
