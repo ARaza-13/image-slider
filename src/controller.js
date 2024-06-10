@@ -13,10 +13,13 @@ export default class Controller {
       image.classList.contains('active')
     );
 
+    // if the "active" image was found
     if (activeIndex !== -1) {
       images[activeIndex].classList.remove('active');
 
+      // determine index of next item
       let nextIndex = activeIndex + 1;
+      // if last array item is 'active", set next index to the first item
       if (nextIndex === images.length) {
         nextIndex = 0;
       }
@@ -31,10 +34,13 @@ export default class Controller {
       image.classList.contains('active')
     );
 
+    // if the "active" image was found
     if (activeIndex !== -1) {
       images[activeIndex].classList.remove('active');
 
+      // determine index of previous item
       let previousIndex = activeIndex - 1;
+      // if first array item is 'active", set previous index to the last item
       if (previousIndex === -1) {
         previousIndex = images.length - 1;
       }

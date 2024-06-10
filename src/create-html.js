@@ -1,7 +1,9 @@
 export default class CreateHtml {
   static initializeHtml() {
     this.createPageElements();
+    this.createImageCarouselContainer();
     this.createImageSlideshow();
+    this.createImageBubbleFrame();
     this.createPreviousArrow();
     this.createImageFrame();
     this.createNextArrow();
@@ -27,13 +29,22 @@ export default class CreateHtml {
     body.appendChild(footer);
   }
 
+  static createImageCarouselContainer() {
+    const imageCarousel = document.createElement('div');
+    imageCarousel.classList.add('image-carousel');
+    imageCarousel.setAttribute('id', 'image-carousel');
+
+    const main = document.getElementById('main');
+    main.appendChild(imageCarousel);
+  }
+
   static createImageSlideshow() {
     const slideshow = document.createElement('div');
     slideshow.classList.add('image-slideshow');
     slideshow.setAttribute('id', 'image-slideshow');
 
-    const main = document.getElementById('main');
-    main.appendChild(slideshow);
+    const imageCarousel = document.getElementById('image-carousel');
+    imageCarousel.appendChild(slideshow);
   }
 
   static createImageFrame() {
@@ -67,6 +78,7 @@ export default class CreateHtml {
   static createNextArrow() {
     const nextArrow = document.createElement('span');
     nextArrow.classList.add('material-symbols-outlined');
+    nextArrow.classList.add('arrow');
     nextArrow.classList.add('next-image');
     nextArrow.setAttribute('id', 'next-image');
     nextArrow.textContent = 'keyboard_arrow_right';
@@ -78,11 +90,29 @@ export default class CreateHtml {
   static createPreviousArrow() {
     const previousArrow = document.createElement('span');
     previousArrow.classList.add('material-symbols-outlined');
+    previousArrow.classList.add('arrow');
     previousArrow.classList.add('previous-image');
     previousArrow.setAttribute('id', 'previous-image');
     previousArrow.textContent = 'keyboard_arrow_right';
 
     const slideshow = document.getElementById('image-slideshow');
     slideshow.appendChild(previousArrow);
+  }
+
+  static createImageBubbleFrame() {
+    const imageBubbleFrame = document.createElement('div');
+    imageBubbleFrame.classList.add('image-bubbles');
+    imageBubbleFrame.setAttribute('id', 'image-bubbles');
+
+    const imageCarousel = document.getElementById('image-carousel');
+    imageCarousel.appendChild(imageBubbleFrame);
+  }
+
+  static createImageBubble() {
+    const imageBubble = document.createElement('div');
+    imageBubble.classList.add('image-bubble');
+
+    const imageBubbleFrame = document.getElementById('image-bubbles');
+    imageBubbleFrame.appendChild(imageBubble);
   }
 }

@@ -8,6 +8,7 @@ export default class DOMManager {
     DOMManager.loadImages();
     DOMManager.loadFirstImage();
     Controller.initArrowButtons();
+    DOMManager.loadImageBubbles();
   }
 
   static loadImages() {
@@ -19,5 +20,11 @@ export default class DOMManager {
   static loadFirstImage() {
     const img = document.querySelector('[data-image]');
     img.classList.add('active');
+  }
+
+  static loadImageBubbles() {
+    for (let i = 0; i < imageFolder.length; i++) {
+      CreateHtml.createImageBubble();
+    }
   }
 }
