@@ -1,18 +1,22 @@
+import tifa from './assets/imgs/tifa.jpg';
+import cloudAndTifa1 from './assets/imgs/cloud-and-tifa-1.jpeg';
+import cloudAndTifa2 from './assets/imgs/cloud-and-tifa-2.jpg';
+import cloudAndTifa3 from './assets/imgs/cloud-and-tifa-3.jpg';
 import batmanArkhamAsylum from './assets/imgs/batman-arkham-asylum.jpg';
 import batmanArkhamCity1 from './assets/imgs/batman-arkham-city-1.jpg';
-import batmanArkhamCity2 from './assets/imgs/batman-arkham-city-2.jpg';
 import batmanArkhamKnight from './assets/imgs/batman-arkham-knight.jpg';
 import batmanArkhamOrigins from './assets/imgs/batman-arkham-origins.jpg';
 import marvelsSpiderman from './assets/imgs/marvels-spiderman.jpg';
-import marvelsSpidermanMM from './assets/imgs/marvels-spiderman-miles-morales.jpg';
-import marvelsSpiderman2 from './assets/imgs/marvels-spiderman-2.png';
-import rain from './assets/imgs/rain.jpg';
-import sunset from './assets/imgs/sunset.jpg';
+import marvelsSpidermanMiles from './assets/imgs/marvels-spiderman-miles-morales.jpg';
 
 export const imageFolder = [];
+imageFolder.push(tifa);
+imageFolder.push(cloudAndTifa1);
+imageFolder.push(cloudAndTifa2);
+imageFolder.push(cloudAndTifa3);
 imageFolder.push(batmanArkhamAsylum);
 imageFolder.push(batmanArkhamCity1);
 imageFolder.push(batmanArkhamOrigins);
 imageFolder.push(batmanArkhamKnight);
 imageFolder.push(marvelsSpiderman);
-imageFolder.push(marvelsSpiderman2);
+imageFolder.push(marvelsSpidermanMiles);
