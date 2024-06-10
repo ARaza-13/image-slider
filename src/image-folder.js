@@ -12,5 +12,7 @@ import sunset from './assets/imgs/sunset.jpg';
 export const imageFolder = [];
 imageFolder.push(batmanArkhamAsylum);
 imageFolder.push(batmanArkhamCity1);
+imageFolder.push(batmanArkhamOrigins);
 imageFolder.push(batmanArkhamKnight);
+imageFolder.push(marvelsSpiderman);
 imageFolder.push(marvelsSpiderman2);
