@@ -7,7 +7,16 @@ export default class Controller {
     previousArrow.addEventListener('click', Controller.goToPreviousImage);
   }
 
+  static initBubbleButtons() {
+    const imageBubbles = document.querySelectorAll('[data-bubble]');
+
+    imageBubbles.forEach((imageBubble) =>
+      imageBubble.addEventListener('click', Controller.switchImageBubble)
+    );
+  }
+
   static goToNextImage() {
+    const bubbles = Array.from(document.querySelectorAll('[data-bubble]'));
     const images = Array.from(document.querySelectorAll('[data-image]'));
     const activeIndex = images.findIndex((image) =>
       image.classList.contains('active')
@@ -16,6 +25,7 @@ export default class Controller {
     // if the "active" image was found
     if (activeIndex !== -1) {
       images[activeIndex].classList.remove('active');
+      bubbles[activeIndex].classList.remove('active');
 
       // determine index of next item
       let nextIndex = activeIndex + 1;
@@ -25,10 +35,12 @@ export default class Controller {
       }
 
       images[nextIndex].classList.add('active');
+      bubbles[nextIndex].classList.add('active');
     }
   }
 
   static goToPreviousImage() {
+    const bubbles = Array.from(document.querySelectorAll('[data-bubble]'));
     const images = Array.from(document.querySelectorAll('[data-image]'));
     const activeIndex = images.findIndex((image) =>
       image.classList.contains('active')
@@ -37,6 +49,7 @@ export default class Controller {
     // if the "active" image was found
     if (activeIndex !== -1) {
       images[activeIndex].classList.remove('active');
+      bubbles[activeIndex].classList.remove('active');
 
       // determine index of previous item
       let previousIndex = activeIndex - 1;
@@ -46,6 +59,26 @@ export default class Controller {
       }
 
       images[previousIndex].classList.add('active');
+      bubbles[previousIndex].classList.add('active');
+    }
+  }
+
+  static switchImageBubble(e) {
+    const bubbleIndex = e.target.getAttribute('data-bubble');
+
+    const bubbles = Array.from(document.querySelectorAll('[data-bubble]'));
+    const images = Array.from(document.querySelectorAll('[data-image]'));
+    const activeIndex = images.findIndex((image) =>
+      image.classList.contains('active')
+    );
+
+    // if the "active" image was found
+    if (activeIndex !== -1) {
+      images[activeIndex].classList.remove('active');
+      bubbles[activeIndex].classList.remove('active');
+
+      images[bubbleIndex].classList.add('active');
+      bubbles[bubbleIndex].classList.add('active');
     }
   }
 }

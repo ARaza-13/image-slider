@@ -10,6 +10,7 @@ export default class DOMManager {
     Controller.initArrowButtons();
     DOMManager.loadImageBubbles();
     DOMManager.loadFirstBubble();
+    Controller.initBubbleButtons();
   }
 
   static loadImages() {
