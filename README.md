@@ -1,3 +1,1 @@
-# template-webpack-eslint-prettier
-
-basic html, css, js template that includes Webpack startup along with ESLint and Prettier setup
+A basic image carousel that displays a selection of images and allows you to advance the image foward or backward
