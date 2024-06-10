@@ -11,6 +11,7 @@ export default class DOMManager {
     DOMManager.loadImageBubbles();
     DOMManager.loadFirstBubble();
     Controller.initBubbleButtons();
+    Controller.autoAdvanceNextImage();
   }
 
   static loadImages() {

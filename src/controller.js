@@ -1,4 +1,8 @@
 export default class Controller {
+  constructor() {
+    this.timer;
+  }
+
   static initArrowButtons() {
     const nextArrow = document.getElementById('next-image');
     const previousArrow = document.getElementById('previous-image');
@@ -36,6 +40,8 @@ export default class Controller {
 
       images[nextIndex].classList.add('active');
       bubbles[nextIndex].classList.add('active');
+
+      Controller.resetAutoImage();
     }
   }
 
@@ -60,6 +66,8 @@ export default class Controller {
 
       images[previousIndex].classList.add('active');
       bubbles[previousIndex].classList.add('active');
+
+      Controller.resetAutoImage();
     }
   }
 
@@ -79,6 +87,19 @@ export default class Controller {
 
       images[bubbleIndex].classList.add('active');
       bubbles[bubbleIndex].classList.add('active');
+
+      Controller.resetAutoImage();
     }
+  }
+
+  static autoAdvanceNextImage() {
+    this.timer = setInterval(() => {
+      Controller.goToNextImage();
+    }, 10000);
+  }
+
+  static resetAutoImage() {
+    clearInterval(this.timer);
+    Controller.autoAdvanceNextImage();
   }
 }
