@@ -1,3 +1,8 @@
+:root {
+  --accessory-light: #999;
+  --confirm: #2abd67;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,10 +13,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
-
-.active {
-  display: inline !important;
 }
 
 .main {
@@ -37,7 +38,7 @@ body {
 .image-frame {
   width: 500px;
   height: 500px;
-  border: 20px solid #999;
+  border: 20px solid var(--accessory-light);
 }
 
 .image {
@@ -46,10 +47,14 @@ body {
   display: none;
 }
 
+.image.active {
+  display: inline !important;
+}
+
 .arrow {
   font-size: 5rem;
   border-radius: 50%;
-  background: grey;
+  background: var(--accessory-light);
   cursor: pointer;
   user-select: none;
 }
@@ -62,9 +67,13 @@ body {
 .image-bubble {
   height: 25px;
   width: 25px;
-  background-color: #bbb;
+  background-color: var(--accessory-light);
   border-radius: 50%;
   display: inline-block;
+}
+
+.image-bubble.active {
+  background-color: var(--confirm);
 }
 
 .previous-image {

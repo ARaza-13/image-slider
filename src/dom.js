@@ -9,22 +9,28 @@ export default class DOMManager {
     DOMManager.loadFirstImage();
     Controller.initArrowButtons();
     DOMManager.loadImageBubbles();
+    DOMManager.loadFirstBubble();
   }
 
   static loadImages() {
-    imageFolder.forEach((image) => {
-      CreateHtml.createImage(image);
+    imageFolder.forEach((image, index) => {
+      CreateHtml.createImage(image, index);
     });
   }
 
   static loadFirstImage() {
-    const img = document.querySelector('[data-image]');
+    const img = document.querySelector('[data-image="0"]');
     img.classList.add('active');
   }
 
   static loadImageBubbles() {
     for (let i = 0; i < imageFolder.length; i++) {
-      CreateHtml.createImageBubble();
+      CreateHtml.createImageBubble(i);
     }
+  }
+
+  static loadFirstBubble() {
+    const bubble = document.querySelector('[data-bubble="0"]');
+    bubble.classList.add('active');
   }
 }

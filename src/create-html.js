@@ -65,10 +65,10 @@ export default class CreateHtml {
     imageFrame.appendChild(images);
   }
 
-  static createImage(image) {
+  static createImage(image, index) {
     const img = document.createElement('img');
     img.classList.add('image');
-    img.setAttribute('data-image', '');
+    img.setAttribute('data-image', `${index}`);
     img.src = image;
 
     const images = document.getElementById('images');
@@ -108,9 +108,10 @@ export default class CreateHtml {
     imageCarousel.appendChild(imageBubbleFrame);
   }
 
-  static createImageBubble() {
+  static createImageBubble(index) {
     const imageBubble = document.createElement('div');
     imageBubble.classList.add('image-bubble');
+    imageBubble.setAttribute('data-bubble', `${index}`);
 
     const imageBubbleFrame = document.getElementById('image-bubbles');
     imageBubbleFrame.appendChild(imageBubble);
