@@ -1,6 +1,8 @@
 export default class CreateHtml {
   static initializeHtml() {
     this.createPageElements();
+    this.createImagePlayer();
+    this.createImagePlayerButtons();
     this.createImageCarouselContainer();
     this.createImageSlideshow();
     this.createImageBubbleFrame();
@@ -27,6 +29,31 @@ export default class CreateHtml {
     body.appendChild(header);
     body.appendChild(main);
     body.appendChild(footer);
+  }
+
+  static createImagePlayer() {
+    const imagePlayer = document.createElement('div');
+    imagePlayer.classList.add('image-player');
+    imagePlayer.setAttribute('id', 'image-player');
+
+    const header = document.getElementById('header');
+    header.appendChild(imagePlayer);
+  }
+
+  static createImagePlayerButtons() {
+    const playButton = document.createElement('span');
+    playButton.classList.add('material-symbols-outlined');
+    playButton.classList.add('button', 'play-button');
+    playButton.textContent = 'play_circle';
+
+    const pauseButton = document.createElement('span');
+    pauseButton.classList.add('material-symbols-outlined');
+    pauseButton.classList.add('button', 'pause-button');
+    pauseButton.textContent = 'pause_circle';
+
+    const imagePlayer = document.getElementById('image-player');
+    imagePlayer.appendChild(playButton);
+    imagePlayer.appendChild(pauseButton);
   }
 
   static createImageCarouselContainer() {
