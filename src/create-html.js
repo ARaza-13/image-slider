@@ -44,11 +44,13 @@ export default class CreateHtml {
     const playButton = document.createElement('span');
     playButton.classList.add('material-symbols-outlined');
     playButton.classList.add('button', 'play-button');
+    playButton.setAttribute('id', 'play-button');
     playButton.textContent = 'play_circle';
 
     const pauseButton = document.createElement('span');
     pauseButton.classList.add('material-symbols-outlined');
     pauseButton.classList.add('button', 'pause-button');
+    pauseButton.setAttribute('id', 'pause-button');
     pauseButton.textContent = 'pause_circle';
 
     const imagePlayer = document.getElementById('image-player');

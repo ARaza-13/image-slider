@@ -1,6 +1,10 @@
 export default class Controller {
   constructor() {
-    this.timer;
+    this.timer = null;
+    this.isAutoSlideActive = false;
+
+    this.logInterval = null;
+    this.logCounter = 0;
   }
 
   static initArrowButtons() {
@@ -17,6 +21,20 @@ export default class Controller {
     imageBubbles.forEach((imageBubble) =>
       imageBubble.addEventListener('click', Controller.switchImageBubble)
     );
+  }
+
+  static initPlayerButtons() {
+    const playButton = document.getElementById('play-button');
+    const pauseButton = document.getElementById('pause-button');
+
+    playButton.onclick = () => {
+      console.log('start');
+      Controller.startAutoSlide();
+    };
+    pauseButton.onclick = () => {
+      console.log('stop');
+      Controller.stopAutoSlide();
+    };
   }
 
   static goToNextImage() {
@@ -41,7 +59,7 @@ export default class Controller {
       images[nextIndex].classList.add('active');
       bubbles[nextIndex].classList.add('active');
 
-      Controller.resetAutoImage();
+      Controller.resetAutoSlide();
     }
   }
 
@@ -67,7 +85,7 @@ export default class Controller {
       images[previousIndex].classList.add('active');
       bubbles[previousIndex].classList.add('active');
 
-      Controller.resetAutoImage();
+      Controller.resetAutoSlide();
     }
   }
 
@@ -88,18 +106,43 @@ export default class Controller {
       images[bubbleIndex].classList.add('active');
       bubbles[bubbleIndex].classList.add('active');
 
-      Controller.resetAutoImage();
+      Controller.resetAutoSlide();
     }
   }
 
-  static autoAdvanceNextImage() {
-    this.timer = setInterval(() => {
-      Controller.goToNextImage();
-    }, 10000);
+  static startAutoSlide() {
+    if (!this.isAutoSlideActive) {
+      this.isAutoSlideActive = true;
+      this.timer = setInterval(() => {
+        Controller.goToNextImage();
+      }, 10000);
+    }
+
+    Controller.startLogTimer();
   }
 
-  static resetAutoImage() {
+  static stopAutoSlide() {
+    this.isAutoSlideActive = false;
     clearInterval(this.timer);
-    Controller.autoAdvanceNextImage();
+    Controller.stopLogTimer();
+  }
+
+  static resetAutoSlide() {
+    if (this.isAutoSlideActive) {
+      Controller.stopAutoSlide();
+      Controller.startAutoSlide();
+    }
+  }
+
+  static startLogTimer() {
+    this.logCounter = 0;
+    this.logInterval = setInterval(() => {
+      this.logCounter++;
+      console.log(`Next slide in ${this.logCounter} seconds.`);
+    }, 1000);
+  }
+
+  static stopLogTimer() {
+    clearInterval(this.logInterval);
   }
 }
