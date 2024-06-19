@@ -41,17 +41,25 @@ export default class CreateHtml {
   }
 
   static createImagePlayerButtons() {
-    const playButton = document.createElement('span');
-    playButton.classList.add('material-symbols-outlined');
-    playButton.classList.add('button', 'play-button');
-    playButton.setAttribute('id', 'play-button');
-    playButton.textContent = 'play_circle';
+    const playIcon = document.createElement('span');
+    playIcon.classList.add('material-symbols-outlined');
+    playIcon.classList.add('icon', 'play-icon');
+    playIcon.textContent = 'play_arrow';
 
-    const pauseButton = document.createElement('span');
-    pauseButton.classList.add('material-symbols-outlined');
-    pauseButton.classList.add('button', 'pause-button');
+    const playButton = document.createElement('button');
+    playButton.classList.add('button');
+    playButton.setAttribute('id', 'play-button');
+    playButton.appendChild(playIcon);
+
+    const pauseIcon = document.createElement('span');
+    pauseIcon.classList.add('material-symbols-outlined');
+    pauseIcon.classList.add('icon', 'pause-icon');
+    pauseIcon.textContent = 'pause';
+
+    const pauseButton = document.createElement('button');
+    pauseButton.classList.add('button');
     pauseButton.setAttribute('id', 'pause-button');
-    pauseButton.textContent = 'pause_circle';
+    pauseButton.appendChild(pauseIcon);
 
     const imagePlayer = document.getElementById('image-player');
     imagePlayer.appendChild(playButton);
@@ -107,25 +115,31 @@ export default class CreateHtml {
   static createNextArrow() {
     const nextArrow = document.createElement('span');
     nextArrow.classList.add('material-symbols-outlined');
-    nextArrow.classList.add('arrow');
-    nextArrow.classList.add('next-image');
-    nextArrow.setAttribute('id', 'next-image');
+    nextArrow.classList.add('arrow', 'next-arrow');
     nextArrow.textContent = 'keyboard_arrow_right';
 
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('advance-image');
+    nextButton.setAttribute('id', 'next-image');
+    nextButton.appendChild(nextArrow);
+
     const slideshow = document.getElementById('image-slideshow');
-    slideshow.appendChild(nextArrow);
+    slideshow.appendChild(nextButton);
   }
 
   static createPreviousArrow() {
     const previousArrow = document.createElement('span');
     previousArrow.classList.add('material-symbols-outlined');
-    previousArrow.classList.add('arrow');
-    previousArrow.classList.add('previous-image');
-    previousArrow.setAttribute('id', 'previous-image');
+    previousArrow.classList.add('arrow', 'previous-arrow');
     previousArrow.textContent = 'keyboard_arrow_right';
 
+    const previousButton = document.createElement('button');
+    previousButton.classList.add('advance-image');
+    previousButton.setAttribute('id', 'previous-image');
+    previousButton.appendChild(previousArrow);
+
     const slideshow = document.getElementById('image-slideshow');
-    slideshow.appendChild(previousArrow);
+    slideshow.appendChild(previousButton);
   }
 
   static createImageBubbleFrame() {

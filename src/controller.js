@@ -5,6 +5,9 @@ export default class Controller {
 
     this.logInterval = null;
     this.logCounter = 0;
+
+    this.playButton = document.getElementById('play-button');
+    this.pauseButton = document.getElementById('pause-button');
   }
 
   static initArrowButtons() {
@@ -35,6 +38,8 @@ export default class Controller {
       console.log('stop');
       Controller.stopAutoSlide();
     };
+
+    pauseButton.disabled = true;
   }
 
   static goToNextImage() {
@@ -117,14 +122,26 @@ export default class Controller {
         Controller.goToNextImage();
       }, 10000);
     }
-
+    console.log('--STARTING COUNTDOWN--');
     Controller.startLogTimer();
+
+    const playButton = document.getElementById('play-button');
+    const pauseButton = document.getElementById('pause-button');
+
+    playButton.disabled = true;
+    pauseButton.disabled = false;
   }
 
   static stopAutoSlide() {
     this.isAutoSlideActive = false;
     clearInterval(this.timer);
     Controller.stopLogTimer();
+
+    const playButton = document.getElementById('play-button');
+    const pauseButton = document.getElementById('pause-button');
+
+    playButton.disabled = false;
+    pauseButton.disabled = true;
   }
 
   static resetAutoSlide() {
