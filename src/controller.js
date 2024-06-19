@@ -2,12 +2,6 @@ export default class Controller {
   constructor() {
     this.timer = null;
     this.isAutoSlideActive = false;
-
-    this.logInterval = null;
-    this.logCounter = 0;
-
-    this.playButton = document.getElementById('play-button');
-    this.pauseButton = document.getElementById('pause-button');
   }
 
   static initArrowButtons() {
@@ -122,8 +116,6 @@ export default class Controller {
         Controller.goToNextImage();
       }, 10000);
     }
-    console.log('--STARTING COUNTDOWN--');
-    Controller.startLogTimer();
 
     const playButton = document.getElementById('play-button');
     const pauseButton = document.getElementById('pause-button');
@@ -135,7 +127,6 @@ export default class Controller {
   static stopAutoSlide() {
     this.isAutoSlideActive = false;
     clearInterval(this.timer);
-    Controller.stopLogTimer();
 
     const playButton = document.getElementById('play-button');
     const pauseButton = document.getElementById('pause-button');
@@ -149,17 +140,5 @@ export default class Controller {
       Controller.stopAutoSlide();
       Controller.startAutoSlide();
     }
-  }
-
-  static startLogTimer() {
-    this.logCounter = 0;
-    this.logInterval = setInterval(() => {
-      this.logCounter++;
-      console.log(`Next slide in ${this.logCounter} seconds.`);
-    }, 1000);
-  }
-
-  static stopLogTimer() {
-    clearInterval(this.logInterval);
   }
 }
